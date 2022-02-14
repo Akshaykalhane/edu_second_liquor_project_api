@@ -29,13 +29,9 @@ app.get('/city/:id',(req,res)=>{
 
 // show category
 
-app.get('/category',(req,res)=>{
-    let restId=Number(req.params.category_id)
-    let query={}
-    if(restId){
-        query={"data.category_id":restId}
-    }
-    db.collection('data').find(query).toArray((err,result)=>{
+app.get('/categories',(req,res)=>{
+    // let restId=Number(req.params.category_id)
+    db.collection('data').find().toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
