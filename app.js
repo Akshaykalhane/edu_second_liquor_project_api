@@ -19,13 +19,9 @@ app.get('/',(req,res)=>{
 })
 
 //city
-app.get('/city',(req,res)=>{
-    let cityId=Number(req.query.city_id);
-    let query={}
-    if(cityId){
-        query={"city.city_id":cityId}
-    }
-    db.collection('city').find().toArray((err,result)=>{
+app.get('/city/:id',(req,res)=>{
+    let restId=Number(req.params.id)
+    db.collection('city').find({city_id:restId}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
