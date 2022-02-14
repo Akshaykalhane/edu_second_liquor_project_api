@@ -133,7 +133,7 @@ app.put('/updateOrder/:id',(req,res)=>{
         }},
         (err,result)=>{
             if(err) throw err;
-            res.send(`Status updated to $status`)
+            res.send(`Status updated to ${status}`)
         })
 })
 
