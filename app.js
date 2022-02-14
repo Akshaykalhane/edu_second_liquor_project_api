@@ -113,6 +113,14 @@ app.post('/productItem',(req,res)=>{
     })
 })
 
+//delete order
+app.delete('/deleteOrder',(req,res)=>{
+    db.collection('orders').remove({},(err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 
 console.log('hello world');
 
