@@ -106,6 +106,13 @@ app.post('/placeOrder',(req,res)=>{
 })
 
 
+app.post('/productItem',(req,res)=>{
+    db.collection('liquor').find({product_id:{$in:req.body}}).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 
 console.log('hello world');
 
