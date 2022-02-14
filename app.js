@@ -76,7 +76,7 @@ app.get('filter/:categoryId',(req,res)=>{
 //product details
 app.get('/details/:id',(req,res)=>{
     let restId=Number(req.params.id)
-    db.collection('liquor').find({"product_id":restId}).toArray((err,result)=>{
+    db.collection('liquor').find({product_id:restId}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
