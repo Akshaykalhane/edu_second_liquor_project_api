@@ -121,6 +121,23 @@ app.delete('/deleteOrder',(req,res)=>{
     })
 })
 
+// update order
+app.put('/updateOrder/:id',(req,res)=>{
+    let oId=mongo.ObjectId(req.params.id)
+    let status=req.query.status?req.query.status:'Pending'
+    db.collection('orders').updateOne({_id:oId},
+        {$set:{
+            "status":status,
+            "bank_name":req.body.bank_name,
+            "bank_status":req.body.bank_status
+        }},
+        (err,result)=>{
+            if(err) throw err;
+            res.send(`Status updated to $status`)
+        })
+})
+
+
 
 console.log('hello world');
 
