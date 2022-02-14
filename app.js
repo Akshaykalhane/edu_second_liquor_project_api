@@ -63,7 +63,8 @@ app.get('filter/:categoryId',(req,res)=>{
     }
     if(lcost && hcost){
         query={
-            $and:[{cost:{$gt:lcost, $lt:hcost}}]
+            $and:[{cost:{$gt:lcost, $lt:hcost}}],
+	"category_id":categoryId
         }
     }
     db.collection('liquor').find(query).sort(sort).skip(skip).limit(limit).toArray((err,result)=>{
