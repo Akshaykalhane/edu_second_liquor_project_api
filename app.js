@@ -18,6 +18,13 @@ app.get('/',(req,res)=>{
     res.send('welcome to my express app')
 })
 
+//city
+app.get('/city',(req,res)=>{
+    db.collection('city').find().toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
 console.log('hello world');
 
 MongoClient.connect(mongoUrl, (err, client) => {
