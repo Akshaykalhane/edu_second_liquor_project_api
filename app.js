@@ -82,6 +82,31 @@ app.get('/details/:id',(req,res)=>{
     })
 })
 
+
+// order on basis of user selection
+
+app.get('/orders',(req,res)=>{
+    let email=req.query.email;
+    let query={}
+    if(email){
+        query={"email":email}
+    }
+    db.collection('orders').find(query).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+// place order
+app.post('/placeOrder',(req,res)=>{
+    db.collection('orders').insert(req.body,(err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+
+
 console.log('hello world');
 
 MongoClient.connect(mongoUrl, (err, client) => {
