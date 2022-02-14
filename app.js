@@ -45,6 +45,34 @@ app.get('/category/:id',(req,res)=>{
         res.send(result)
     })
 })
+
+app.get('filter/:categoryId',(req,res)=>{
+    let sort={cost:1}
+    let categoryId=Number(req.params.categoryId);
+    let skip=0;
+    let limit=1000000;
+    let lcost=Number(req.query.lcost)
+    let hcost=Number(req.query.hcost)
+    let query={};
+
+    if(req.query.sort){
+        sort={cost:req.query.sort}
+    }
+    if(req.query.skip && req.query.limit){
+        skip=Number(req.query.limit)
+    }
+    if(lcost && hcost){
+        query={
+            $and:[{cost:{$gt:lcost, $lt:hcost}}],
+            "category_id":categoryId
+        }
+    }
+    db.collection('liquor').find(query).sort(sort).skip(skip).limit(limit).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 console.log('hello world');
 
 MongoClient.connect(mongoUrl, (err, client) => {
