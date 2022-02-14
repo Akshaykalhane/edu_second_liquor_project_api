@@ -37,6 +37,14 @@ app.get('/categories',(req,res)=>{
     })
 })
 
+// category by choice
+app.get('/category/:id',(req,res)=>{
+    let restId=Number(req.params.id)
+    AbortController.collection('liquor').find({catetory_id:restId}).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
 console.log('hello world');
 
 MongoClient.connect(mongoUrl, (err, client) => {
