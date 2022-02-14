@@ -27,6 +27,16 @@ app.get('/city/:id',(req,res)=>{
     })
 })
 
+// show category
+
+app.get('/category',(req,res)=>{
+    let restId=Number(req.params.id)
+    db.collection('category').find().toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 console.log('hello world');
 
 MongoClient.connect(mongoUrl, (err, client) => {
