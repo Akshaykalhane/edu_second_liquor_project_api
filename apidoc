@@ -1,0 +1,31 @@
+>search city
+>https://edu-second-liquor-project-api.herokuapp.com/city/1
+
+//list all category
+>https://edu-second-liquor-project-api.herokuapp.com/category
+
+//category by choice
+>https://edu-second-liquor-project-api.herokuapp.com/category/1
+
+//product details
+>https://edu-second-liquor-project-api.herokuapp.com/details/1
+
+//items on user selection
+>https://edu-second-liquor-project-api.herokuapp.com/productItem
+>body[1,2]
+
+//list of all order
+>https://edu-second-liquor-project-api.herokuapp.com/orders
+>https://edu-second-liquor-project-api.herokuapp.com/orders?email=akshay@gmail.com
+
+//api ot place order
+>https://edu-second-liquor-project-api.herokuapp.com/placeOrder
+
+//delete order
+>https://edu-second-liquor-project-api.herokuapp.com/deleteOrder
+
+//update order
+>https://edu-second-liquor-project-api.herokuapp.com/updateOrder/620ab11d22e87bc3a6542338?status=Success
+
+
+
