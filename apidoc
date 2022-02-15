@@ -18,7 +18,7 @@
 >https://edu-second-liquor-project-api.herokuapp.com/orders
 >https://edu-second-liquor-project-api.herokuapp.com/orders?email=akshay@gmail.com
 
-//api ot place order
+//api to place order
 >https://edu-second-liquor-project-api.herokuapp.com/placeOrder
 
 //delete order
