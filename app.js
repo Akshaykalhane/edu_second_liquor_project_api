@@ -46,6 +46,22 @@ app.get('/category/:id',(req,res)=>{
     })
 })
 
+
+//type by choice
+
+app.get('/catetype',(req,res)=>{
+    let  cateId=Number(req.query.category_id);
+    let query={};
+    if(cateId){
+        query={category_id:cateId}
+    }
+    db.collection('liquor').find(query).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+
 app.get('filter/:categoryId',(req,res)=>{
     let sort={cost:1}
     let categoryId=Number(req.params.categoryId);
